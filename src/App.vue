@@ -1,19 +1,33 @@
 <template>
   <div id="app">
-    <img alt="Vue logo" src="./assets/logo.png">
-    <HelloWorld msg="Welcome to Your Vue.js App"/>
+    <div id="nav">
+      <router-link to="/">Fun</router-link> |
+      <router-link to="/info">All Options</router-link>
+    </div>
+    <router-view :races="testData" />
   </div>
 </template>
 
 <script>
-import HelloWorld from './components/HelloWorld.vue'
-
 export default {
-  name: 'App',
-  components: {
-    HelloWorld
-  }
-}
+  data() {
+    return {
+      testData: [],
+    };
+  },
+  created() {
+    fetch("https://www.dnd5eapi.co/api/races/")
+      .then((response) => response.json())
+      .then((data) => (this.testData = data.results));
+    // .then((data) => console.log(data));
+  },
+  watch: {
+    // testData: function(newData) {
+    //   console.log("hello");
+    //   console.log(newData[0].index);
+    // },
+  },
+};
 </script>
 
 <style>
@@ -23,6 +37,18 @@ export default {
   -moz-osx-font-smoothing: grayscale;
   text-align: center;
   color: #2c3e50;
-  margin-top: 60px;
+}
+
+#nav {
+  padding: 30px;
+}
+
+#nav a {
+  font-weight: bold;
+  color: #2c3e50;
+}
+
+#nav a.router-link-exact-active {
+  color: #a80f0f;
 }
 </style>
