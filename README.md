@@ -1,5 +1,12 @@
 # vue-character-creator
 
+## Description
+
+Random character creator with Vue 2.
+
+API used: http://www.dnd5eapi.co/docs/
+
+
 ## Project setup
 ```
 npm install
