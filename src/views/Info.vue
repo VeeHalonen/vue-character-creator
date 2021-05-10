@@ -1,6 +1,6 @@
 <template>
   <div>
-    <AllData :races="races" />
+    <AllData :races="races" :spells="spells" @refetch="$emit('refetch')" />
   </div>
 </template>
 
@@ -11,6 +11,7 @@ export default {
   components: {
     AllData,
   },
-  props: ["races"],
+  props: ["races", "spells"],
+  emits: "refetch",
 };
 </script>

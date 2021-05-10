@@ -4,33 +4,46 @@
       <router-link to="/">Generate</router-link> |
       <router-link to="/info">All Options</router-link>
     </div>
-    <router-view :races="testData" />
+    <router-view :races="races" :spells="spells" @refetch="refetchData" />
   </div>
 </template>
 
 <script>
 const baseURL = "https://www.dnd5eapi.co/api/";
 
-// Fetches data from the D&D API in the given category
-const fetchDND = async (category) => {
-  return fetch(baseURL + category + "/").then((response) => response.json());
-};
-
 export default {
   data() {
     return {
-      testData: [],
+      races: [],
+      spells: [],
     };
   },
   created() {
-    fetchDND("races").then((data) => (this.testData = data.results));
+    this.fetchAll();
     // .then((data) => console.log(data));
   },
   watch: {
-    // testData: function(newData) {
+    // races: function(newData) {
     //   console.log("hello");
     //   console.log(newData[0].index);
     // },
+  },
+  methods: {
+    // Fetches data from the D&D API in the given category
+    async fetchDND(category) {
+      return fetch(baseURL + category + "/").then((response) =>
+        response.json()
+      );
+    },
+    async fetchAll() {
+      this.fetchDND("races").then((data) => (this.races = data.results));
+      this.fetchDND("spells").then((data) => (this.spells = data.results));
+    },
+    refetchData() {
+      this.races = [];
+      this.spells = [];
+      this.fetchAll();
+    },
   },
 };
 </script>
@@ -51,9 +64,11 @@ export default {
 #nav a {
   font-weight: bold;
   color: #2c3e50;
+  text-decoration: none;
 }
 
 #nav a.router-link-exact-active {
-  color: #a80f0f;
+  color: #830909;
+  text-decoration: underline;
 }
 </style>
