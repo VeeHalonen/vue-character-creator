@@ -12,6 +12,10 @@
         <td>{{ getClass() }}</td>
       </tr>
       <tr>
+        <th>Alignment:</th>
+        <td>{{ alignment() }}</td>
+      </tr>
+      <tr>
         <th>Favourite Spell:</th>
         <td>{{ spell() }}</td>
       </tr>
@@ -63,7 +67,6 @@ export default {
     },
     // Etc.
     getClass() {
-      console.log();
       return getRandomValue(this.$store.state.classes);
     },
     language() {
@@ -77,6 +80,9 @@ export default {
     },
     item() {
       return getRandomValue(this.$store.state.items);
+    },
+    alignment() {
+      return getRandomValue(this.$store.state.alignments);
     },
   },
 };

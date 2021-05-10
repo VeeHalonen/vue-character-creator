@@ -54,10 +54,25 @@ export default {
             this.$store.commit("setItems", items.concat(data.results));
           })
         );
+      this.fetchDND("alignments").then((data) =>
+        this.$store.commit("setAlignments", data.results)
+      );
     },
-    refetchData() {
+    clearData() {
+      // Props
       this.races = [];
       this.spells = [];
+      // Store
+      this.$store.commit("setClasses", []);
+      this.$store.commit("setLanguages", []);
+      this.$store.commit("setMonsters", []);
+      this.$store.commit("setSubclasses", []);
+      this.$store.commit("setItems", []);
+      this.$store.commit("setAlignments", []);
+    },
+    refetchData() {
+      window.scrollTo(0, 0);
+      this.clearData();
       this.fetchAll();
     },
   },
@@ -81,6 +96,10 @@ export default {
   font-weight: bold;
   color: #41566b;
   text-decoration: none;
+}
+
+#nav a:hover {
+  color: #bb2929;
 }
 
 #nav a.router-link-exact-active {

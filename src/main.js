@@ -13,6 +13,7 @@ const store = new Vuex.Store({
     monsters: [],
     subclasses: [],
     items: [],
+    alignments: [],
   },
   mutations: {
     setClasses(state, newState) {
@@ -29,6 +30,9 @@ const store = new Vuex.Store({
     },
     setItems(state, newState) {
       state.items = newState;
+    },
+    setAlignments(state, newState) {
+      state.alignments = newState;
     },
   },
 });

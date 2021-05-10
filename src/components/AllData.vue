@@ -2,6 +2,7 @@
   <div>
     <data-list title="Races" :data="races" />
     <data-list title="Classes" :data="$store.state.classes" />
+    <data-list title="Alignments" :data="$store.state.alignments" />
     <data-list title="Subclasses" :data="$store.state.subclasses" />
     <data-list title="Languages" :data="$store.state.languages" />
     <data-list title="Monsters" :data="$store.state.monsters" />
