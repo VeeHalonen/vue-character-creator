@@ -1,7 +1,7 @@
 <template>
   <div id="app">
     <div id="nav">
-      <router-link to="/">Fun</router-link> |
+      <router-link to="/">Generate</router-link> |
       <router-link to="/info">All Options</router-link>
     </div>
     <router-view :races="testData" />
@@ -9,6 +9,13 @@
 </template>
 
 <script>
+const baseURL = "https://www.dnd5eapi.co/api/";
+
+// Fetches data from the D&D API in the given category
+const fetchDND = async (category) => {
+  return fetch(baseURL + category + "/").then((response) => response.json());
+};
+
 export default {
   data() {
     return {
@@ -16,9 +23,7 @@ export default {
     };
   },
   created() {
-    fetch("https://www.dnd5eapi.co/api/races/")
-      .then((response) => response.json())
-      .then((data) => (this.testData = data.results));
+    fetchDND("races").then((data) => (this.testData = data.results));
     // .then((data) => console.log(data));
   },
   watch: {
