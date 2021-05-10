@@ -30,8 +30,13 @@ export default {
       );
     },
     async fetchAll() {
+      // Props
       this.fetchDND("races").then((data) => (this.races = data.results));
       this.fetchDND("spells").then((data) => (this.spells = data.results));
+      // Store
+      this.fetchDND("classes").then((data) =>
+        this.$store.commit("setClasses", data.results)
+      );
     },
     refetchData() {
       this.races = [];

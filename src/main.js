@@ -9,12 +9,13 @@ Vue.use(Vuex);
 // TODO: set up store
 const store = new Vuex.Store({
   state: {
-    // count: 0,
+    classes: [],
   },
   mutations: {
-    // increment(state) {
-    //   state.count++;
-    // },
+    setClasses(state, newState) {
+      console.log(newState);
+      state.classes = newState;
+    },
   },
 });
 
