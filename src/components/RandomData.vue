@@ -2,6 +2,10 @@
   <div>
     <table columns="50%,50%">
       <tr>
+        <th>Name:</th>
+        <td>{{ name() }}</td>
+      </tr>
+      <tr>
         <th>Race:</th>
         <td>{{ race() }}</td>
       </tr>
@@ -40,6 +44,8 @@
 </template>
 
 <script>
+import { generateName } from "../helpers";
+
 // Gets a random value from given array
 const getRandomValue = (arr) => {
   if (arr && arr[0] && arr[0].name) {
@@ -83,6 +89,9 @@ export default {
     },
     alignment() {
       return getRandomValue(this.$store.state.alignments);
+    },
+    name() {
+      return generateName();
     },
   },
 };

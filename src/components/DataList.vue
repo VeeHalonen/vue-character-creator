@@ -17,12 +17,6 @@
 <script>
 export default {
   props: ["title", "data"],
-  // watch: {
-  //   data: function(data) {
-  //     console.log("hello from AllData");
-  //     console.log(data);
-  //   },
-  // },
   computed: {
     parsedData: function() {
       const parsed = [];
@@ -43,12 +37,4 @@ ol {
   list-style-position: inside;
   padding-left: 0;
 }
-/* li {
-  display: inline-block;
-  margin: 0 10px;
-  width: 20%;
-
-  text-align: left;
-  margin-left: 45%;
-} */
 </style>
