@@ -27,8 +27,8 @@ export default {
     parsedData: function() {
       const parsed = [];
       this.data.map((i) => {
-        if (i.index) {
-          parsed.push(i.index);
+        if (i.name) {
+          parsed.push(i.name);
         }
       });
       return parsed;

@@ -10,15 +10,19 @@
         <td>{{ spell }}</td>
       </tr>
     </table>
+
+    <div>
+      <button @click="randomize">Randomize</button>
+    </div>
   </div>
 </template>
 
 <script>
 // Gets a random value from given array
 const getRandomIndex = (arr) => {
-  if (arr && arr[0] && arr[0].index) {
+  if (arr && arr[0] && arr[0].name) {
     const index = Math.floor(Math.random() * arr.length);
-    return arr[index].index;
+    return arr[index].name;
   } else {
     return "...";
   }
@@ -35,6 +39,11 @@ export default {
       return getRandomIndex(this.spells);
     },
   },
+  methods: {
+    randomize() {
+      // this.$forceUpdate();
+    },
+  },
 };
 </script>
 
@@ -43,6 +52,7 @@ table {
   margin-left: auto;
   margin-right: auto;
   text-align: left;
+  padding: 20px 20px 20px 20px;
 }
 tr {
   min-width: 100;

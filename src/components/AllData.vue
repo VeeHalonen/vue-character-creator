@@ -14,12 +14,6 @@ import DataList from "./DataList.vue";
 export default {
   components: { DataList },
   props: ["races", "spells"],
-  // watch: {
-  //   races: function(races) {
-  //     console.log("hello from AllData");
-  //     console.log(races[0].index);
-  //   },
-  // },
   emits: "refetch",
 };
 </script>
