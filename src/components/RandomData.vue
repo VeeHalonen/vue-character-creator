@@ -3,11 +3,11 @@
     <table>
       <tr>
         <th>Race:</th>
-        <td>{{ race }}</td>
+        <td>{{ race() }}</td>
       </tr>
       <tr>
         <th>Favourite Spell:</th>
-        <td>{{ spell }}</td>
+        <td>{{ spell() }}</td>
       </tr>
     </table>
 
@@ -31,17 +31,17 @@ const getRandomIndex = (arr) => {
 export default {
   name: "RandomData",
   props: ["races", "spells"],
-  computed: {
-    race: function() {
-      return getRandomIndex(this.races);
-    },
-    spell: function() {
-      return getRandomIndex(this.spells);
-    },
-  },
   methods: {
     randomize() {
-      // this.$forceUpdate();
+      this.$forceUpdate();
+    },
+    // Returns a random race
+    race() {
+      return getRandomIndex(this.races);
+    },
+    // Returns a random spell
+    spell() {
+      return getRandomIndex(this.spells);
     },
   },
 };
