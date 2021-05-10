@@ -20,7 +20,6 @@ export default {
   },
   created() {
     this.fetchAll();
-    // .then((data) => console.log(data));
   },
   methods: {
     // Fetches data from the D&D API in the given category
@@ -37,6 +36,24 @@ export default {
       this.fetchDND("classes").then((data) =>
         this.$store.commit("setClasses", data.results)
       );
+      this.fetchDND("languages").then((data) =>
+        this.$store.commit("setLanguages", data.results)
+      );
+      this.fetchDND("monsters").then((data) =>
+        this.$store.commit("setMonsters", data.results)
+      );
+      this.fetchDND("subclasses").then((data) =>
+        this.$store.commit("setSubclasses", data.results)
+      );
+      // Items == equipment + magic-items
+      let items = [];
+      this.fetchDND("equipment")
+        .then((data) => (items = data.results))
+        .then(
+          this.fetchDND("magic-items").then((data) => {
+            this.$store.commit("setItems", items.concat(data.results));
+          })
+        );
     },
     refetchData() {
       this.races = [];

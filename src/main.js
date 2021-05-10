@@ -6,15 +6,29 @@ import router from "./router";
 Vue.config.productionTip = false;
 Vue.use(Vuex);
 
-// TODO: set up store
 const store = new Vuex.Store({
   state: {
     classes: [],
+    languages: [],
+    monsters: [],
+    subclasses: [],
+    items: [],
   },
   mutations: {
     setClasses(state, newState) {
-      console.log(newState);
       state.classes = newState;
+    },
+    setLanguages(state, newState) {
+      state.languages = newState;
+    },
+    setMonsters(state, newState) {
+      state.monsters = newState;
+    },
+    setSubclasses(state, newState) {
+      state.subclasses = newState;
+    },
+    setItems(state, newState) {
+      state.items = newState;
     },
   },
 });

@@ -1,13 +1,31 @@
 <template>
   <div>
-    <table>
+    <table columns="50%,50%">
       <tr>
         <th>Race:</th>
         <td>{{ race() }}</td>
       </tr>
       <tr>
+        <th>Class:</th>
+        <!-- The subclasses were a bit too silly -->
+        <!-- <td>{{ subclass() + " " + getClass() }}</td> -->
+        <td>{{ getClass() }}</td>
+      </tr>
+      <tr>
         <th>Favourite Spell:</th>
         <td>{{ spell() }}</td>
+      </tr>
+      <tr>
+        <th>First Language:</th>
+        <td>{{ language() }}</td>
+      </tr>
+      <tr>
+        <th>Most Prized Possession:</th>
+        <td>{{ item() }}</td>
+      </tr>
+      <tr>
+        <th>Most Fearsome Enemy Defeated:</th>
+        <td>{{ monster() }}</td>
       </tr>
     </table>
 
@@ -19,7 +37,7 @@
 
 <script>
 // Gets a random value from given array
-const getRandomIndex = (arr) => {
+const getRandomValue = (arr) => {
   if (arr && arr[0] && arr[0].name) {
     const index = Math.floor(Math.random() * arr.length);
     return arr[index].name;
@@ -37,11 +55,28 @@ export default {
     },
     // Returns a random race
     race() {
-      return getRandomIndex(this.races);
+      return getRandomValue(this.races);
     },
     // Returns a random spell
     spell() {
-      return getRandomIndex(this.spells);
+      return getRandomValue(this.spells);
+    },
+    // Etc.
+    getClass() {
+      console.log();
+      return getRandomValue(this.$store.state.classes);
+    },
+    language() {
+      return getRandomValue(this.$store.state.languages);
+    },
+    monster() {
+      return getRandomValue(this.$store.state.monsters);
+    },
+    subclass() {
+      return getRandomValue(this.$store.state.subclasses);
+    },
+    item() {
+      return getRandomValue(this.$store.state.items);
     },
   },
 };
@@ -55,10 +90,12 @@ table {
   padding: 20px 20px 20px 20px;
 }
 tr {
-  min-width: 100;
+  width: 50%;
   text-align: right;
 }
 td {
+  width: 50%;
   text-align: left;
+  padding: 5px;
 }
 </style>
