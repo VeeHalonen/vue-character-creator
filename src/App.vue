@@ -22,12 +22,6 @@ export default {
     this.fetchAll();
     // .then((data) => console.log(data));
   },
-  watch: {
-    // races: function(newData) {
-    //   console.log("hello");
-    //   console.log(newData[0].index);
-    // },
-  },
   methods: {
     // Fetches data from the D&D API in the given category
     async fetchDND(category) {
@@ -63,7 +57,7 @@ export default {
 
 #nav a {
   font-weight: bold;
-  color: #2c3e50;
+  color: #41566b;
   text-decoration: none;
 }
 
