@@ -4,9 +4,10 @@
 
 Random character creator with Vue 2.
 
-Note that parts of the component hierarchy are intentionally inconsistent for practice purposes.
+Note that this is a practice project, and thus some inconsistencies in the component hierarchy may be intentional in order to test different approaches. The project was also continued and expanded elsewhere, but this version will remain here as-is for future reference.
 
 API used: http://www.dnd5eapi.co/docs/
+
 
 ## Project setup
 
