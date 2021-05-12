@@ -1,7 +1,7 @@
 <template>
   <div>
     <h3>{{ title }}</h3>
-    <div v-if="data && data.length > 1">
+    <div v-if="data && data.length >= 1">
       <ol>
         <li v-for="(item, i) in parsedData" :key="i">
           {{ item }}

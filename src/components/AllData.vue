@@ -16,7 +16,6 @@
 
 <script>
 import DataList from "./DataList.vue";
-// TODO: add all data here
 export default {
   components: { DataList },
   props: ["races", "spells"],
