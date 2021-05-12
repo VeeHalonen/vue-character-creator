@@ -1,3 +1,38 @@
+
+/* Vuex store initial state */
+export const INITIAL_STORE_STATE = {
+  state: {
+    classes: [],
+    languages: [],
+    monsters: [],
+    subclasses: [],
+    items: [],
+    alignments: [],
+  },
+  mutations: {
+    setClasses(state, newState) {
+      state.classes = newState;
+    },
+    setLanguages(state, newState) {
+      state.languages = newState;
+    },
+    setMonsters(state, newState) {
+      state.monsters = newState;
+    },
+    setSubclasses(state, newState) {
+      state.subclasses = newState;
+    },
+    setItems(state, newState) {
+      state.items = newState;
+    },
+    setAlignments(state, newState) {
+      state.alignments = newState;
+    },
+  },
+}
+
+/* Random Name Generator Algorithm */
+
 // Generates a random name starting with "initial"
 export function generateName(initial = "") {
   const UPPER_CASE = "ABCDEFGHIJKLMNOPQRSTUVWXYZ";
