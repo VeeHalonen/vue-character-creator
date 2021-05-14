@@ -31,6 +31,16 @@ export const INITIAL_STORE_STATE = {
   },
 }
 
+/* Retrieves a random value from the given array */
+export const getRandomValue = (arr) => {
+  if (arr && arr[0] && arr[0].name) {
+    const index = Math.floor(Math.random() * arr.length);
+    return arr[index].name;
+  } else {
+    return "...";
+  }
+};
+
 /* Random Name Generator Algorithm */
 
 // Generates a random name starting with "initial"

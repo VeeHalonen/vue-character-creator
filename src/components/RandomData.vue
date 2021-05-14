@@ -3,38 +3,18 @@
     <table columns="50%,50%">
       <tr>
         <th>Name:</th>
-        <td>{{ name() }}</td>
+        <td>
+          <input type="checkbox" id="nameLock" v-model="nameLocked">
+          <input v-model="name" :disabled="nameLocked"></td>
       </tr>
-      <tr>
-        <th>Race:</th>
-        <td>{{ race() }}</td>
-      </tr>
-      <tr>
-        <th>Class:</th>
-        <!-- The subclasses were a bit too silly -->
-        <!-- <td>{{ subclass() + " " + getClass() }}</td> -->
-        <td>{{ getClass() }}</td>
-      </tr>
-      <tr>
-        <th>Alignment:</th>
-        <td>{{ alignment() }}</td>
-      </tr>
-      <tr>
-        <th>Favourite Spell:</th>
-        <td>{{ spell() }}</td>
-      </tr>
-      <tr>
-        <th>First Language:</th>
-        <td>{{ language() }}</td>
-      </tr>
-      <tr>
-        <th>Most Prized Possession:</th>
-        <td>{{ item() }}</td>
-      </tr>
-      <tr>
-        <th>Most Fearsome Enemy Defeated:</th>
-        <td>{{ monster() }}</td>
-      </tr>
+      <random-data-row title="Race" :options="this.races" :shuffle="shuffle" />
+      <random-data-row title="Class" :options="this.$store.state.classes" :shuffle="shuffle" />
+      <random-data-row title="Alignment" :options="this.$store.state.alignments" :shuffle="shuffle" />
+      <random-data-row title="Favourite Spell" :options="this.spells" :shuffle="shuffle" />
+      <random-data-row title="First Language" :options="this.$store.state.languages" :shuffle="shuffle" />
+      <random-data-row title="Most Prized Possession" :options="this.$store.state.items" :shuffle="shuffle" />
+      <random-data-row title="Most Fearsome Enemy Defeated" :options="this.$store.state.monsters" :shuffle="shuffle" />
+     
     </table>
 
     <div>
@@ -45,59 +25,34 @@
 
 <script>
 import { generateName } from "../helpers";
-
-// Gets a random value from given array
-const getRandomValue = (arr) => {
-  if (arr && arr[0] && arr[0].name) {
-    const index = Math.floor(Math.random() * arr.length);
-    return arr[index].name;
-  } else {
-    return "...";
-  }
-};
+import RandomDataRow from './RandomDataRow.vue';
 
 export default {
+  components: { RandomDataRow },
   name: "RandomData",
   props: ["races", "spells"],
+  data() {
+    return {
+      shuffle: true,
+      nameLocked: false,
+      name: "",
+    }
+  },
+  created: function() {
+    if (!this.nameLocked)
+      this.name = generateName();
+  },
   methods: {
     randomize() {
-      this.$forceUpdate();
-    },
-    // Returns a random race
-    race() {
-      return getRandomValue(this.races);
-    },
-    // Returns a random spell
-    spell() {
-      return getRandomValue(this.spells);
-    },
-    // Etc.
-    getClass() {
-      return getRandomValue(this.$store.state.classes);
-    },
-    language() {
-      return getRandomValue(this.$store.state.languages);
-    },
-    monster() {
-      return getRandomValue(this.$store.state.monsters);
-    },
-    subclass() {
-      return getRandomValue(this.$store.state.subclasses);
-    },
-    item() {
-      return getRandomValue(this.$store.state.items);
-    },
-    alignment() {
-      return getRandomValue(this.$store.state.alignments);
-    },
-    name() {
-      return generateName();
+      this.shuffle = !this.shuffle;
+      if (!this.nameLocked)
+        this.name = generateName();
     },
   },
 };
 </script>
 
-<style scoped>
+<style>
 table {
   margin-left: auto;
   margin-right: auto;
