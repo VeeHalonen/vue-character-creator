@@ -13,28 +13,37 @@
 
 <script>
 
-import { getRandomValue } from "../helpers";
+import { getRandomValue, getRandomValues } from "../helpers";
 
 export default {
   name: "RandomDataRow",
   props: {
       title: String,
-      options: Array,  // array with options to randomly pick from
-      shuffle: Boolean // attempt to re-randomize when this prop changes
+      options: Array,   // array with options to randomly pick from
+      shuffle: Boolean, // attempt to re-randomize when this prop changes
+      multiple: Boolean // if given, chooses multiple random values
   },
   data() {
       return {
           locked: false,
-          value: this.value = getRandomValue(this.options)
+          value: this.value = this.randomize(this.options)
       }
+  },
+  methods: {
+    randomize(arr) {
+      if (this.multiple) {
+        return getRandomValues(arr)
+      }
+      else return getRandomValue(arr)
+    }
   },
   watch: { 
     shuffle: function() {
       if (!this.locked)
-        this.value = getRandomValue(this.options)
+        this.value = this.randomize(this.options)
     },
     options: function(newVal) {
-      this.value = getRandomValue(newVal)
+      this.value = this.randomize(newVal)
     }
   }
 };

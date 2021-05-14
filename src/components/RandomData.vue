@@ -11,7 +11,7 @@
       <random-data-row title="Class" :options="this.$store.state.classes" :shuffle="shuffle" />
       <random-data-row title="Alignment" :options="this.$store.state.alignments" :shuffle="shuffle" />
       <random-data-row title="Favourite Spell" :options="this.spells" :shuffle="shuffle" />
-      <random-data-row title="First Language" :options="this.$store.state.languages" :shuffle="shuffle" />
+      <random-data-row title="Languages" :options="this.$store.state.languages" :shuffle="shuffle" multiple />
       <random-data-row title="Most Prized Possession" :options="this.$store.state.items" :shuffle="shuffle" />
       <random-data-row title="Most Fearsome Enemy Defeated" :options="this.$store.state.monsters" :shuffle="shuffle" />
      

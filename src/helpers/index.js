@@ -41,6 +41,27 @@ export const getRandomValue = (arr) => {
   }
 };
 
+/* Retrieves random number of values from the given array (as a string)
+    - Always returns at least one value
+    - Every subsequent value has a 50% chance to be added
+*/
+export const getRandomValues = (arr) => {
+  if (arr && arr[0] && arr[0].name) {
+    let arr2 = [...arr]
+    let results = [];
+    do {
+      const index = Math.floor(Math.random() * arr2.length);
+      results.push(arr2[index].name)
+      arr2.splice(index, 1)
+    }
+    while (arr2.length > 0 && Math.random() < 0.5)
+    
+    return results.join(", ");
+  } else {
+    return "...";
+  }
+};
+
 /* Random Name Generator Algorithm */
 
 // Generates a random name starting with "initial"
