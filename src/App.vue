@@ -4,7 +4,7 @@
       <router-link to="/">Generate</router-link> |
       <router-link to="/info">All Options</router-link>
     </div>
-    <router-view :races="races" :spells="spells" @refetch="refetchData" />
+    <router-view @refetch="refetchData" />
   </div>
 </template>
 
@@ -12,12 +12,6 @@
 const baseURL = "https://www.dnd5eapi.co/api/";
 
 export default {
-  data() {
-    return {
-      races: [],
-      spells: [],
-    };
-  },
   created() {
     this.fetchAll();
   },
@@ -29,10 +23,12 @@ export default {
       );
     },
     async fetchAll() {
-      // Props
-      this.fetchDND("races").then((data) => (this.races = data.results));
-      this.fetchDND("spells").then((data) => (this.spells = data.results));
-      // Store
+      this.fetchDND("races").then((data) =>
+        this.$store.commit("setRaces", data.results)
+      );
+      this.fetchDND("spells").then((data) =>
+        this.$store.commit("setSpells", data.results)
+      );
       this.fetchDND("classes").then((data) =>
         this.$store.commit("setClasses", data.results)
       );
@@ -59,10 +55,8 @@ export default {
       );
     },
     clearData() {
-      // Props
-      this.races = [];
-      this.spells = [];
-      // Store
+      this.$store.commit("setRaces", []);
+      this.$store.commit("setSpells", []);
       this.$store.commit("setClasses", []);
       this.$store.commit("setLanguages", []);
       this.$store.commit("setMonsters", []);

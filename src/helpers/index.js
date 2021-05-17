@@ -2,6 +2,8 @@
 /* Vuex store initial state */
 export const INITIAL_STORE_STATE = {
   state: {
+    races: [],
+    spells: [],
     classes: [],
     languages: [],
     monsters: [],
@@ -10,6 +12,12 @@ export const INITIAL_STORE_STATE = {
     alignments: [],
   },
   mutations: {
+    setRaces(state, newState) {
+      state.races = newState;
+    },
+    setSpells(state, newState) {
+      state.spells = newState;
+    },
     setClasses(state, newState) {
       state.classes = newState;
     },

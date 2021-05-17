@@ -1,6 +1,6 @@
 <template>
   <div>
-    <RandomData :races="races" :spells="spells" />
+    <RandomData />
   </div>
 </template>
 
@@ -13,6 +13,5 @@ export default {
   components: {
     RandomData,
   },
-  props: ["races", "spells"],
 };
 </script>

@@ -8,10 +8,10 @@
           <input v-model="name" :disabled="nameLocked">
         </td>
       </tr>
-      <random-data-row title="Race" :options="this.races" :shuffle="shuffle" dropdown />
+      <random-data-row title="Race" :options="this.$store.state.races" :shuffle="shuffle" dropdown />
       <random-data-row title="Class" :options="this.$store.state.classes" :shuffle="shuffle" dropdown />
       <random-data-row title="Alignment" :options="this.$store.state.alignments" :shuffle="shuffle" />
-      <random-data-row title="Favourite Spell" :options="this.spells" :shuffle="shuffle" />
+      <random-data-row title="Favourite Spell" :options="this.$store.state.spells" :shuffle="shuffle" />
       <random-multivalue-row title="Languages" :options="this.$store.state.languages" :shuffle="shuffle" />
       <random-data-row title="Most Prized Possession" :options="this.$store.state.items" :shuffle="shuffle" />
       <random-data-row title="Most Fearsome Enemy Defeated" :options="this.$store.state.monsters" :shuffle="shuffle" />
