@@ -16,6 +16,7 @@
 
 <script>
 export default {
+  name: "DataList",
   props: ["title", "data"],
   computed: {
     parsedData: function() {

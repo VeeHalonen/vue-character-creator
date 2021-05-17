@@ -5,15 +5,22 @@
         <th>Name:</th>
         <td>
           <input type="checkbox" id="nameLock" v-model="nameLocked">
-          <input v-model="name" :disabled="nameLocked"></td>
+          <input v-model="name" :disabled="nameLocked">
+        </td>
       </tr>
-      <random-data-row title="Race" :options="this.races" :shuffle="shuffle" />
-      <random-data-row title="Class" :options="this.$store.state.classes" :shuffle="shuffle" />
+      <random-data-row title="Race" :options="this.races" :shuffle="shuffle" dropdown />
+      <random-data-row title="Class" :options="this.$store.state.classes" :shuffle="shuffle" dropdown />
       <random-data-row title="Alignment" :options="this.$store.state.alignments" :shuffle="shuffle" />
       <random-data-row title="Favourite Spell" :options="this.spells" :shuffle="shuffle" />
-      <random-data-row title="Languages" :options="this.$store.state.languages" :shuffle="shuffle" multiple />
+      <random-multivalue-row title="Languages" :options="this.$store.state.languages" :shuffle="shuffle" />
       <random-data-row title="Most Prized Possession" :options="this.$store.state.items" :shuffle="shuffle" />
       <random-data-row title="Most Fearsome Enemy Defeated" :options="this.$store.state.monsters" :shuffle="shuffle" />
+      <tr>
+        <th>Description:</th>
+        <td>
+          <textarea v-model="description" rows="3" columns="10" />
+        </td>
+      </tr>
      
     </table>
 
@@ -26,16 +33,18 @@
 <script>
 import { generateName } from "../helpers";
 import RandomDataRow from './RandomDataRow.vue';
+import RandomMultivalueRow from './RandomMultivalueRow.vue';
 
 export default {
-  components: { RandomDataRow },
   name: "RandomData",
+  components: { RandomDataRow, RandomMultivalueRow },
   props: ["races", "spells"],
   data() {
     return {
       shuffle: true,
       nameLocked: false,
       name: "",
+      description: "",
     }
   },
   created: function() {

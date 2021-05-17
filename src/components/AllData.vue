@@ -17,6 +17,7 @@
 <script>
 import DataList from "./DataList.vue";
 export default {
+  name: "AllData",
   components: { DataList },
   props: ["races", "spells"],
   emits: "refetch",

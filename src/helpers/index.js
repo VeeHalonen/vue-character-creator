@@ -41,7 +41,7 @@ export const getRandomValue = (arr) => {
   }
 };
 
-/* Retrieves random number of values from the given array (as a string)
+/* Retrieves random number of values from the given array
     - Always returns at least one value
     - Every subsequent value has a 50% chance to be added
 */
@@ -56,7 +56,17 @@ export const getRandomValues = (arr) => {
     }
     while (arr2.length > 0 && Math.random() < 0.5)
     
-    return results.join(", ");
+    return results;
+  } else {
+    return [];
+  }
+};
+
+/* Same as getRandomValue but returns a string */
+export const getRandomValuesAsString = (arr) => {
+  const randomValues = getRandomValues(arr)
+  if (randomValues && randomValues.length > 0) {
+    return randomValues.join(", ");
   } else {
     return "...";
   }
