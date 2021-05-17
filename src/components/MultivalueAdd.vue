@@ -38,6 +38,11 @@ export default {
       cancelAdd() {
         this.selectVisible = false;
       }
+    },
+    watch: {
+      values() {
+        this.selectVisible = false
+      }
     }
   }
 </script>

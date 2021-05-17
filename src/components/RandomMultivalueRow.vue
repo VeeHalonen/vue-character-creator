@@ -1,14 +1,13 @@
-
 <!-- Renders a row with random data (multiple values) -->
 
 <template>
       <tr>
         <th>{{title}}:</th>
         <td>
-          <input type="checkbox" id="valueLock" v-model="locked">
-          <multivalue-component v-for="i in selectedValues" :value="i" :key="i"
+          <div><input type="checkbox" id="valueLock" v-model="locked"></div>
+          <div><multivalue-component v-for="i in selectedValues" :value="i" :key="i"
            @delete="deleteItem" />
-           <multivalue-add :values="notSelected"  @add="addItem" />
+           <multivalue-add :values="notSelected" @add="addItem" /></div>
         </td>
       </tr>
 </template>
@@ -66,4 +65,9 @@ export default {
 };
 </script>
 
+<style scoped>
+div {
+  display: inline;
+}
+</style>
 

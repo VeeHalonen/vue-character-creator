@@ -18,7 +18,7 @@
       <tr>
         <th>Description:</th>
         <td>
-          <textarea v-model="description" rows="3" columns="10" />
+          <textarea v-model="description" rows="3" />
         </td>
       </tr>
      
