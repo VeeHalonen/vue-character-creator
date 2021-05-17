@@ -72,7 +72,7 @@ div {
 }
 .column {
   float: left;
-  max-width: 90%;
+  max-width: 95%;
 }
 </style>
 
