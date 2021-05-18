@@ -4,7 +4,10 @@
       <tr>
         <th>{{title}}:</th>
         <td>
-            <div class="column"><input type="checkbox" id="valueLock" v-model="locked"></div>
+            <v-row align="center">
+            <div class="column">
+              <v-checkbox id="valueLock" v-model="locked" />
+            </div>
             <div class="column">
               <div>
                 <multivalue-component v-for="i in selectedValues" :value="i" :key="i"
@@ -12,6 +15,7 @@
                 <multivalue-add :values="notSelected" @add="addItem" />
               </div>
             </div>
+            </v-row>
         </td>
       </tr>
 </template>
@@ -75,7 +79,7 @@ div {
 }
 .column {
   float: left;
-  max-width: 95%;
+  max-width: 90%;
 }
 </style>
 

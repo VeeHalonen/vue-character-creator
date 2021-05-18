@@ -1,11 +1,16 @@
 <template>
-  <div id="app">
+<v-app>
+  <v-main>
     <div id="nav">
       <router-link to="/">Generate</router-link> |
       <router-link to="/info">All Options</router-link>
     </div>
     <router-view @refetch="refetchData" />
-  </div>
+  </v-main>
+  <v-footer class="justify-center mt-10">
+    <div class="grey--text caption ">VEH 2021</div>
+  </v-footer>
+  </v-app>
 </template>
 
 <script>

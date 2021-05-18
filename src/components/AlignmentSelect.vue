@@ -6,14 +6,21 @@
       <tr>
         <th>Alignment:</th>
         <td v-if="options && options.length > 0">
-          <input type="checkbox" id="valueLock" v-model="locked">
-          <div class="row">
-            <div class="column" v-for="i in options" :key="i" >
-              <input type="radio" name="alignment" :id="i" 
-                :value="i" v-model="alignment">
-              <label :for="i">{{i}}</label>
-            </div>
-          </div>
+          <v-row align="center">
+            <v-col cols="auto">
+              <v-checkbox id="valueLock" v-model="locked" />
+            </v-col>
+            <v-col>
+              <v-radio-group v-model="alignment">
+                <div class="row">
+                  <div class="column" v-for="i in options" :key="i" >
+                    <v-radio name="alignment" :id="i" 
+                      :value="i" :label="i" />
+                  </div>
+                </div>
+              </v-radio-group>
+            </v-col>
+          </v-row>
           <!-- <div>Picked: {{ alignment }}</div> -->
         </td>
         <td v-else>...</td>

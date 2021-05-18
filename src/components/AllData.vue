@@ -8,9 +8,7 @@
     <data-list title="Monsters" :data="$store.state.monsters" />
     <data-list title="Spells" :data="$store.state.spells" />
     <data-list title="Items" :data="$store.state.items" />
-    <button @click="$emit('refetch')">
-      Fetch Again
-    </button>
+    <v-btn small @click="$emit('refetch')"> Fetch Again</v-btn>
   </div>
 </template>
 

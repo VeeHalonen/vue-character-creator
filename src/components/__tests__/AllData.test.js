@@ -24,7 +24,7 @@ describe('AllData.vue', function() {
             races, spells
         } })
 
-        await wrapper.find('button').trigger('click')
+        await wrapper.find('v-btn').trigger('click')
         
         expect(wrapper.emitted().refetch.length).toBe(1)
 

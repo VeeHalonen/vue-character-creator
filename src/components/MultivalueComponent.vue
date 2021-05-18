@@ -3,7 +3,7 @@
 -->
 
 <template>
-    <span>{{value}}<button @click="$emit('delete', value)">x</button></span>
+    <span>{{value}}<v-btn x-small @click="$emit('delete', value)">x</v-btn></span>
 </template>
 
 <script>

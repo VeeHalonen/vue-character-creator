@@ -5,13 +5,11 @@
 <template>
 <div v-if="values.length > 0">
   <span v-if="selectVisible" >
-    <select v-model="selected">
-      <option v-for="i in values" :key="i.name" :value="i.name">{{i.name}}</option>
-    </select>
-    <button class="add" @click="add">Add</button>
-    <button class="cancel" @click="cancelAdd">Cancel</button>
+    <v-select solo v-model="selected" :items="values.map(i => (i.name))" />
+    <v-btn x-small class="add" @click="add">Add</v-btn>
+    <v-btn x-small class="cancel" @click="cancelAdd">Cancel</v-btn>
   </span>
-  <button v-else @click="showAdd">+</button>
+  <v-btn small v-else @click="showAdd">+</v-btn>
 </div>
 </template>
 
@@ -43,7 +41,14 @@ export default {
       values() {
         this.selectVisible = false
       }
+    },
+    computed:{
+    selectedStr(){
+      if (this.selected)
+        return this.selected.name
+      return null
     }
+  }
   }
 </script>
 

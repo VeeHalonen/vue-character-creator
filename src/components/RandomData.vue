@@ -4,8 +4,10 @@
       <tr>
         <th>Name:</th>
         <td>
-          <input type="checkbox" id="nameLock" v-model="nameLocked">
-          <input v-model="name" :disabled="nameLocked">
+          <v-row align="center">
+            <v-checkbox id="nameLock" v-model="nameLocked" />
+            <v-text-field outlined v-model="name" :disabled="nameLocked" />
+          </v-row>
         </td>
       </tr>
       <random-data-row title="Race" :options="this.$store.state.races" :shuffle="shuffle" dropdown />
@@ -18,14 +20,14 @@
       <tr>
         <th>Description:</th>
         <td>
-          <textarea v-model="description" rows="3" />
+          <v-textarea outlined v-model="description" rows="3" />
         </td>
       </tr>
      
     </table>
 
     <div>
-      <button @click="randomize">Randomize</button>
+      <v-btn @click="randomize">Randomize</v-btn>
     </div>
   </div>
 </template>

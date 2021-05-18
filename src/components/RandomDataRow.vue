@@ -5,11 +5,11 @@
       <tr>
         <th>{{title}}:</th>
         <td>
-          <input type="checkbox" id="valueLock" v-model="locked">
-          <span v-if="!dropdown">{{ value }}</span>
-          <select v-else v-model="value">
-            <option v-for="i in options" :key="i.name" :value="i.name">{{i.name}}</option>
-          </select>
+          <v-row align="center">
+          <v-checkbox id="valueLock" v-model="locked" />
+            <span v-if="!dropdown">{{ value }}</span>
+            <v-select  v-else outlined v-model="value" :items="options.map(i => (i.name))" />
+          </v-row>
         </td>
       </tr>
 </template>
