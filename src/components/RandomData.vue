@@ -5,7 +5,9 @@
         <th>Name:</th>
         <td>
           <v-row align="center">
-            <v-checkbox id="nameLock" v-model="nameLocked" />
+            
+            <v-checkbox on-icon="mdi-lock" off-icon="mdi-lock-open-outline"
+             id="nameLock" v-model="nameLocked" />
             <v-text-field outlined v-model="name" :disabled="nameLocked" />
           </v-row>
         </td>
