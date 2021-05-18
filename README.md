@@ -42,7 +42,7 @@ npm run deploy
 
 See [Configuration Reference](https://cli.vuejs.org/config/).
 
-## Screenshots
+## Screenshots from the original version
 
 <img width="621" alt="Kuvankaappaus 2021-5-10 kello 15 09 57" src="https://user-images.githubusercontent.com/60449132/117673042-14bb1780-b1b3-11eb-8129-8e0d71cb1817.png">
 
