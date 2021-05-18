@@ -6,8 +6,11 @@
         <td>
             <div class="column"><input type="checkbox" id="valueLock" v-model="locked"></div>
             <div class="column">
-              <div><multivalue-component v-for="i in selectedValues" :value="i" :key="i"
-              @delete="deleteItem" /><multivalue-add :values="notSelected" @add="addItem" /></div>
+              <div>
+                <multivalue-component v-for="i in selectedValues" :value="i" :key="i"
+                  @delete="deleteItem" />
+                <multivalue-add :values="notSelected" @add="addItem" />
+              </div>
             </div>
         </td>
       </tr>

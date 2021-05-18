@@ -10,7 +10,7 @@
       </tr>
       <random-data-row title="Race" :options="this.$store.state.races" :shuffle="shuffle" dropdown />
       <random-data-row title="Class" :options="this.$store.state.classes" :shuffle="shuffle" dropdown />
-      <random-data-row title="Alignment" :options="this.$store.state.alignments" :shuffle="shuffle" />
+      <alignment-select :options="this.$store.state.alignments" :shuffle="shuffle" />
       <random-data-row title="Favourite Spell" :options="this.$store.state.spells" :shuffle="shuffle" />
       <random-multivalue-row title="Languages" :options="this.$store.state.languages" :shuffle="shuffle" />
       <random-data-row title="Most Prized Possession" :options="this.$store.state.items" :shuffle="shuffle" />
@@ -34,11 +34,11 @@
 import { generateName } from "../helpers";
 import RandomDataRow from './RandomDataRow.vue';
 import RandomMultivalueRow from './RandomMultivalueRow.vue';
+import AlignmentSelect from './AlignmentSelect.vue';
 
 export default {
   name: "RandomData",
-  components: { RandomDataRow, RandomMultivalueRow },
-  props: ["races", "spells"],
+  components: { RandomDataRow, RandomMultivalueRow, AlignmentSelect },
   data() {
     return {
       shuffle: true,
@@ -69,11 +69,11 @@ table {
   padding: 20px 20px 20px 20px;
 }
 tr {
-  width: 50%;
+  width: 40%;
   text-align: right;
 }
 td {
-  width: 50%;
+  width: 60%;
   text-align: left;
   padding: 5px;
 }

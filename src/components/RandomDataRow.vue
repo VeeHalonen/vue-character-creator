@@ -16,7 +16,7 @@
 
 <script>
 
-import { getRandomValue, getRandomValuesAsString } from "../helpers";
+import { getRandomValueAsString, getRandomValuesAsString } from "../helpers";
 
 export default {
   name: "RandomDataRow",
@@ -39,7 +39,7 @@ export default {
       if (this.multiple && !this.dropdown) {
         return getRandomValuesAsString(arr)
       }
-      else return getRandomValue(arr)
+      else return getRandomValueAsString(arr)
     }
   },
   watch: { 

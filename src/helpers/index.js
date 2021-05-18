@@ -9,7 +9,9 @@ export const INITIAL_STORE_STATE = {
     monsters: [],
     subclasses: [],
     items: [],
-    alignments: [],
+    alignments: ["Lawful Good", "Neutral Good", "Chaotic Good",
+                 "Lawful Neutral", "Neutral", "Chaotic Neutral",
+                 "Lawful Evil", "Neutral Evil", "Chaotic Evil"],
   },
   mutations: {
     setRaces(state, newState) {
@@ -41,6 +43,16 @@ export const INITIAL_STORE_STATE = {
 
 /* Retrieves a random value from the given array */
 export const getRandomValue = (arr) => {
+  if (arr && arr[0] && arr[0]) {
+    const index = Math.floor(Math.random() * arr.length);
+    return arr[index];
+  } else {
+    return null;
+  }
+};
+
+/* Same as getRandomValue but returns a string */
+export const getRandomValueAsString = (arr) => {
   if (arr && arr[0] && arr[0].name) {
     const index = Math.floor(Math.random() * arr.length);
     return arr[index].name;
@@ -70,7 +82,7 @@ export const getRandomValues = (arr) => {
   }
 };
 
-/* Same as getRandomValue but returns a string */
+/* Same as getRandomValues but returns a string */
 export const getRandomValuesAsString = (arr) => {
   const randomValues = getRandomValues(arr)
   if (randomValues && randomValues.length > 0) {

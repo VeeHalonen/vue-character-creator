@@ -50,9 +50,9 @@ export default {
             this.$store.commit("setItems", items.concat(data.results));
           })
         );
-      this.fetchDND("alignments").then((data) =>
-        this.$store.commit("setAlignments", data.results)
-      );
+      // this.fetchDND("alignments").then((data) =>
+      //   this.$store.commit("setAlignments", data.results)
+      // );
     },
     clearData() {
       this.$store.commit("setRaces", []);
@@ -62,7 +62,7 @@ export default {
       this.$store.commit("setMonsters", []);
       this.$store.commit("setSubclasses", []);
       this.$store.commit("setItems", []);
-      this.$store.commit("setAlignments", []);
+      // this.$store.commit("setAlignments", []);
     },
     refetchData() {
       window.scrollTo(0, 0);
