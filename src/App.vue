@@ -79,30 +79,5 @@ export default {
 </script>
 
 <style>
-#app {
-  font-family: Avenir, Helvetica, Arial, sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-  text-align: center;
-  color: #2c3e50;
-}
-
-#nav {
-  padding: 30px;
-}
-
-#nav a {
-  font-weight: bold;
-  color: #41566b;
-  text-decoration: none;
-}
-
-#nav a:hover {
-  color: #bb2929;
-}
-
-#nav a.router-link-exact-active {
-  color: #830909;
-  text-decoration: underline;
-}
+@import './assets/styles.css';
 </style>

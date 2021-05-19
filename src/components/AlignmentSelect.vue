@@ -4,11 +4,12 @@
 
 <template>
       <tr>
-        <th>Alignment:</th>
-        <td v-if="options && options.length > 0">
+        <th class="row-title">Alignment:</th>
+        <td class="row-content" v-if="options && options.length > 0">
           <v-row align="center">
             <v-col cols="auto">
-              <v-checkbox id="valueLock" v-model="locked" />
+              <v-checkbox on-icon="mdi-lock" off-icon="mdi-lock-open-outline"
+              id="valueLock" v-model="locked" />
             </v-col>
             <v-col>
               <v-radio-group v-model="alignment">
@@ -23,7 +24,7 @@
           </v-row>
           <!-- <div>Picked: {{ alignment }}</div> -->
         </td>
-        <td v-else>...</td>
+        <td class="row-content" v-else>...</td>
       </tr>
 </template>
 
@@ -63,10 +64,5 @@ export default {
 }
 .row {
   max-width: 500px;
-}
-.row:after {
-  content: "";
-  display: table;
-  clear: both;
 }
 </style>

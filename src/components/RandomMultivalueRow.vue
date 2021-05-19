@@ -2,12 +2,13 @@
 
 <template>
       <tr>
-        <th>{{title}}:</th>
-        <td>
+        <th class="row-title">{{title}}:</th>
+        <td class="row-content">
           <v-container>
             <v-row align="center">
               <v-col cols="1">
-                <v-checkbox id="valueLock" v-model="locked" />
+                <v-checkbox on-icon="mdi-lock" off-icon="mdi-lock-open-outline"
+                  id="valueLock" v-model="locked" />
               </v-col>
               <v-col align-self="center" cols="11">
                 <div>

@@ -1,14 +1,14 @@
 <template>
   <div>
-    <table columns="50%,50%">
+    <table class="main-table">
       <tr>
-        <th>Name:</th>
-        <td>
+        <th class="row-title">Name:</th>
+        <td class="row-content">
           <v-row align="center">
             
             <v-checkbox on-icon="mdi-lock" off-icon="mdi-lock-open-outline"
              id="nameLock" v-model="nameLocked" />
-            <v-text-field dense outlined v-model="name" :disabled="nameLocked" />
+            <v-text-field dense outlined hide-details v-model="name" :disabled="nameLocked" />
           </v-row>
         </td>
       </tr>
@@ -20,8 +20,8 @@
       <random-data-row title="Most Prized Possession" :options="this.$store.state.items" :shuffle="shuffle" />
       <random-data-row title="Most Fearsome Enemy Defeated" :options="this.$store.state.monsters" :shuffle="shuffle" />
       <tr>
-        <th>Description:</th>
-        <td>
+        <th class="row-title">Description:</th>
+        <td class="row-content">
           <v-textarea outlined hide-details v-model="description" rows="3" />
         </td>
       </tr>
@@ -65,20 +65,3 @@ export default {
 };
 </script>
 
-<style>
-table {
-  margin-left: auto;
-  margin-right: auto;
-  text-align: left;
-  padding: 20px 20px 20px 20px;
-}
-tr {
-  width: 40%;
-  text-align: right;
-}
-td {
-  width: 60%;
-  text-align: left;
-  padding: 5px;
-}
-</style>

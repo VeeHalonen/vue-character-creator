@@ -3,12 +3,13 @@
 
 <template>
   <tr>
-    <th>{{title}}:</th>
-    <td>
+    <th class="row-title">{{title}}:</th>
+    <td class="row-content">
       <v-row align="center">
-        <v-checkbox id="valueLock" v-model="locked" />
+        <v-checkbox on-icon="mdi-lock" off-icon="mdi-lock-open-outline"
+          id="valueLock" v-model="locked" />
         <span v-if="!dropdown">{{ value }}</span>
-        <v-select v-else dense outlined v-model="value" :items="options.map(i => (i.name))" />
+        <v-select v-else dense outlined hide-details v-model="value" :items="options.map(i => (i.name))" />
       </v-row>
     </td>
   </tr>
