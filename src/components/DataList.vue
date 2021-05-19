@@ -1,8 +1,8 @@
 <template>
   <div>
-    <h3>{{ title }}</h3>
+    <h3 class="my-5">{{ title }}</h3>
     <div v-if="data && data.length >= 1">
-      <ol>
+      <ol class="mb-5">
         <li v-for="(item, i) in parsedData" :key="i">
           {{ item }}
         </li>
