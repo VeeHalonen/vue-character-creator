@@ -29,7 +29,7 @@
     </table>
 
     <div>
-      <v-btn @click="randomize">Randomize</v-btn>
+      <v-btn @click="randomize" color="secondary">Randomize</v-btn>
     </div>
   </div>
 </template>

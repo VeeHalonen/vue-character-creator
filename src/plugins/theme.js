@@ -5,7 +5,7 @@ export default {
     base: colors.blueGrey.base,
     darken1: colors.blueGrey.darken2,
   },
-  secondary: colors.indigo,
+  secondary: "#830909",
   // All keys will generate theme styles,
   // Here we add a custom `tertiary` color
   tertiary: colors.pink.base,
