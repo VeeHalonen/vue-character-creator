@@ -3,14 +3,15 @@
 -->
 
 <template>
-<div v-if="values.length > 0">
-  <span v-if="selectVisible" >
-    <v-select solo v-model="selected" :items="values.map(i => (i.name))" />
-    <v-btn x-small class="add" @click="add">Add</v-btn>
-    <v-btn x-small class="cancel" @click="cancelAdd">Cancel</v-btn>
-  </span>
-  <v-btn small v-else @click="showAdd">+</v-btn>
-</div>
+  <div v-if="values.length > 0">
+    <span v-if="selectVisible" >
+      <v-select solo dense hide-details
+        v-model="selected" :items="values.map(i => (i.name))" />
+      <v-btn x-small class="add" @click="add">Add</v-btn>
+      <v-btn x-small class="cancel" @click="cancelAdd">Cancel</v-btn>
+    </span>
+    <v-btn small v-else @click="showAdd">+</v-btn>
+  </div>
 </template>
 
 <script>
@@ -53,9 +54,15 @@ export default {
 </script>
 
 <style scoped>
-  div {
-    display: inline-block;
-  }
+div {
+  
+    align-content: center;
+    align-items: center;
+    align-self: center;
+    justify-self: center;
+    justify-content: center;
+    justify-items: center;
+}
   span {
     padding: 2px;
     padding-left: 5px;

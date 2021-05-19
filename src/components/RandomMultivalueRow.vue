@@ -4,18 +4,20 @@
       <tr>
         <th>{{title}}:</th>
         <td>
+          <v-container>
             <v-row align="center">
-            <div class="column">
-              <v-checkbox id="valueLock" v-model="locked" />
-            </div>
-            <div class="column">
-              <div>
-                <multivalue-component v-for="i in selectedValues" :value="i" :key="i"
-                  @delete="deleteItem" />
-                <multivalue-add :values="notSelected" @add="addItem" />
-              </div>
-            </div>
+              <v-col cols="1">
+                <v-checkbox id="valueLock" v-model="locked" />
+              </v-col>
+              <v-col align-self="center" cols="11">
+                <div>
+                  <multivalue-component v-for="i in selectedValues" :value="i" :key="i"
+                    @delete="deleteItem" />
+                  <multivalue-add :values="notSelected" @add="addItem" />
+                </div>
+              </v-col>
             </v-row>
+            </v-container>
         </td>
       </tr>
 </template>
@@ -73,13 +75,4 @@ export default {
 };
 </script>
 
-<style scoped>
-div {
-  display: inline;
-}
-.column {
-  float: left;
-  max-width: 90%;
-}
-</style>
 

@@ -8,7 +8,7 @@
             
             <v-checkbox on-icon="mdi-lock" off-icon="mdi-lock-open-outline"
              id="nameLock" v-model="nameLocked" />
-            <v-text-field outlined v-model="name" :disabled="nameLocked" />
+            <v-text-field dense outlined v-model="name" :disabled="nameLocked" />
           </v-row>
         </td>
       </tr>
@@ -22,7 +22,7 @@
       <tr>
         <th>Description:</th>
         <td>
-          <v-textarea outlined v-model="description" rows="3" />
+          <v-textarea outlined hide-details v-model="description" rows="3" />
         </td>
       </tr>
      

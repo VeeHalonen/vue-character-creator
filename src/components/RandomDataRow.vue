@@ -2,16 +2,16 @@
 <!-- Renders a row with random data -->
 
 <template>
-      <tr>
-        <th>{{title}}:</th>
-        <td>
-          <v-row align="center">
-          <v-checkbox id="valueLock" v-model="locked" />
-            <span v-if="!dropdown">{{ value }}</span>
-            <v-select  v-else outlined v-model="value" :items="options.map(i => (i.name))" />
-          </v-row>
-        </td>
-      </tr>
+  <tr>
+    <th>{{title}}:</th>
+    <td>
+      <v-row align="center">
+        <v-checkbox id="valueLock" v-model="locked" />
+        <span v-if="!dropdown">{{ value }}</span>
+        <v-select v-else dense outlined v-model="value" :items="options.map(i => (i.name))" />
+      </v-row>
+    </td>
+  </tr>
 </template>
 
 <script>
