@@ -25,6 +25,7 @@ export default {
         if (i.name) {
           parsed.push(i.name);
         }
+        else parsed.push(i);
       });
       return parsed;
     },
