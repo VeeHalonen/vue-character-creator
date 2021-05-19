@@ -4,13 +4,17 @@
 
 <template>
   <div v-if="values.length > 0">
-    <span v-if="selectVisible" >
+    <span v-if="selectVisible" class="value-box" >
       <v-select solo dense hide-details
         v-model="selected" :items="values.map(i => (i.name))" />
-      <v-btn x-small class="add" @click="add">Add</v-btn>
-      <v-btn x-small class="cancel" @click="cancelAdd">Cancel</v-btn>
+      <v-btn x-small depressed color="primary" class="add" @click="add">
+        Add
+      </v-btn>
+      <v-btn x-small depressed class="cancel" @click="cancelAdd">
+       Cancel
+      </v-btn>
     </span>
-    <v-btn small v-else @click="showAdd">+</v-btn>
+    <v-btn v-else small color="primary" @click="showAdd">+</v-btn>
   </div>
 </template>
 
@@ -54,16 +58,7 @@ export default {
 </script>
 
 <style scoped>
-div {
-  
-    align-content: center;
-    align-items: center;
-    align-self: center;
-    justify-self: center;
-    justify-content: center;
-    justify-items: center;
-}
-  span {
+  span.value-box {
     padding: 2px;
     padding-left: 5px;
     padding-right: 5px;
@@ -71,17 +66,16 @@ div {
     border: 1px solid gray;
     display: inline-block;
   }
-  button {
-    margin-left: 5px;
+  .v-btn {
+    padding: 10px !important;
+    margin: 3px !important;
+    margin-top: 5px !important;
+    min-width: 0px !important;
   }
-  /* button.cancel {
-    background-color: red;
-    color: white;
-    border: none;
-  }
-  button.add {
-    background-color: green;
-    color: white;
-    border: none;
+  /* .v-btn.cancel {
+    color: red
+  } */
+  /* .v-btn.add {
+    color: green;
   } */
 </style>
