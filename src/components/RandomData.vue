@@ -5,10 +5,13 @@
         <th class="row-title">Name:</th>
         <td class="row-content">
           <v-row align="center">
-            
+            <v-col cols="1">
             <v-checkbox on-icon="mdi-lock" off-icon="mdi-lock-open-outline"
              id="nameLock" v-model="nameLocked" />
-            <v-text-field dense outlined hide-details v-model="name" :disabled="nameLocked" />
+            </v-col>
+            <v-col>
+              <v-text-field dense outlined hide-details v-model="name" :disabled="nameLocked" />
+            </v-col>
           </v-row>
         </td>
       </tr>
