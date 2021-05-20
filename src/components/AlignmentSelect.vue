@@ -5,7 +5,7 @@
 <template>
   <tr>
     <th class="row-title">Alignment:</th>
-    <td class="row-content" v-if="options && options.length > 0">
+    <td class="row-content">
       <v-row align="center">
         <v-col cols="1">
           <v-checkbox
@@ -15,7 +15,8 @@
             v-model="locked"
           />
         </v-col>
-        <v-col cols="10">
+        <!-- OPTIONS -->
+        <v-col cols="10" v-if="options && options.length > 0">
           <v-radio-group v-model="alignment" class="ml-5">
             <div class="row">
               <div class="column" v-for="i in options" :key="i">
@@ -24,10 +25,13 @@
             </div>
           </v-radio-group>
         </v-col>
+        <!-- LOADING -->
+        <v-col v-else>
+          <v-btn loading elevation="0" block />
+        </v-col>
       </v-row>
       <!-- <div>Picked: {{ alignment }}</div> -->
     </td>
-    <td class="row-content" v-else>...</td>
   </tr>
 </template>
 

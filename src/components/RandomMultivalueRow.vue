@@ -13,8 +13,17 @@
             v-model="locked"
           />
         </v-col>
+
         <v-col>
-          <div>
+          <!-- LOADING -->
+          <v-btn
+            v-if="!options || options.length === 0"
+            loading
+            elevation="0"
+            block
+          />
+          <!-- SELECT -->
+          <div v-else>
             <multivalue-component
               v-for="i in selectedValues"
               :value="i"

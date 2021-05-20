@@ -15,14 +15,23 @@
           />
         </v-col>
         <v-col>
+          <!-- LOADING -->
+          <v-btn
+            v-if="!options || options.length === 0"
+            loading
+            elevation="0"
+            block
+          />
+          <!-- DROPDOWN -->
           <v-select
-            v-if="dropdown"
+            v-else-if="dropdown"
             dense
             outlined
             hide-details
             v-model="value"
             :items="options.map((i) => i.name)"
           />
+          <!-- SEARCHABLE -->
           <v-autocomplete
             v-else-if="searchable"
             dense
@@ -31,6 +40,7 @@
             v-model="value"
             :items="options.map((i) => i.name)"
           />
+          <!-- PLAIN -->
           <span v-else>{{ value }}</span>
         </v-col>
       </v-row>
@@ -39,7 +49,7 @@
 </template>
 
 <script>
-import { getRandomValueAsString, getRandomValuesAsString } from "../helpers";
+import { getRandomValueAsString } from "../helpers";
 
 export default {
   name: "RandomDataRow",
@@ -47,10 +57,9 @@ export default {
     title: String,
     options: Array, // array with options to randomly pick from
     shuffle: Boolean, // attempt to re-randomize when this prop changes
-    multiple: Boolean, // if given, chooses multiple random values
     dropdown: Boolean, // if given, renders a dropdown menu with options
     searchable: Boolean, // if given, renders a select with autocomplete
-    // priority if more than one is given: searchable > dropdown > multiple
+    // priority if more than one is given: dropdown > searchable
   },
   data() {
     return {
@@ -60,9 +69,7 @@ export default {
   },
   methods: {
     randomize(arr) {
-      if (this.multiple && !this.dropdown && !this.searchable) {
-        return getRandomValuesAsString(arr);
-      } else return getRandomValueAsString(arr);
+      return getRandomValueAsString(arr);
     },
   },
   watch: {
