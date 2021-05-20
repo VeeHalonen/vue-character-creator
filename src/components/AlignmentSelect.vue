@@ -16,7 +16,7 @@
           />
         </v-col>
         <v-col cols="10">
-          <v-radio-group v-model="alignment" class="ml-5 pa-0">
+          <v-radio-group v-model="alignment" class="ml-5">
             <div class="row">
               <div class="column" v-for="i in options" :key="i">
                 <v-radio name="alignment" :id="i" :value="i" :label="i" />

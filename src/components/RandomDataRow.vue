@@ -15,15 +15,23 @@
           />
         </v-col>
         <v-col>
-          <span v-if="!dropdown">{{ value }}</span>
           <v-select
-            v-else
+            v-if="dropdown"
             dense
             outlined
             hide-details
             v-model="value"
             :items="options.map((i) => i.name)"
           />
+          <v-autocomplete
+            v-else-if="searchable"
+            dense
+            hide-details
+            filled
+            v-model="value"
+            :items="options.map((i) => i.name)"
+          />
+          <span v-else>{{ value }}</span>
         </v-col>
       </v-row>
     </td>
@@ -41,7 +49,8 @@ export default {
     shuffle: Boolean, // attempt to re-randomize when this prop changes
     multiple: Boolean, // if given, chooses multiple random values
     dropdown: Boolean, // if given, renders a dropdown menu with options
-    // ignores "multiple" if both are given
+    searchable: Boolean, // if given, renders a select with autocomplete
+    // priority if more than one is given: searchable > dropdown > multiple
   },
   data() {
     return {
@@ -51,7 +60,7 @@ export default {
   },
   methods: {
     randomize(arr) {
-      if (this.multiple && !this.dropdown) {
+      if (this.multiple && !this.dropdown && !this.searchable) {
         return getRandomValuesAsString(arr);
       } else return getRandomValueAsString(arr);
     },

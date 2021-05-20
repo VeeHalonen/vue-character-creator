@@ -45,6 +45,7 @@
         title="Favourite Spell"
         :options="this.$store.state.spells"
         :shuffle="shuffle"
+        searchable
       />
       <random-multivalue-row
         title="Languages"
@@ -55,11 +56,13 @@
         title="Most Prized Possession"
         :options="this.$store.state.items"
         :shuffle="shuffle"
+        searchable
       />
       <random-data-row
         title="Most Fearsome Enemy Defeated"
         :options="this.$store.state.monsters"
         :shuffle="shuffle"
+        searchable
       />
       <tr>
         <th class="row-title">Description:</th>
