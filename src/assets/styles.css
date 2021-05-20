@@ -29,6 +29,9 @@ td.row-content {
   margin: 10px;
   max-width: 400px;
 }
+.v-list-item {
+  text-align: left;
+}
 
 #app {
   font-family: Avenir, Helvetica, Arial, sans-serif;
