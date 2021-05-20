@@ -19,13 +19,12 @@ export default {
   name: "DataList",
   props: ["title", "data"],
   computed: {
-    parsedData: function() {
+    parsedData: function () {
       const parsed = [];
       this.data.map((i) => {
         if (i.name) {
           parsed.push(i.name);
-        }
-        else parsed.push(i);
+        } else parsed.push(i);
       });
       return parsed;
     },

@@ -1,4 +1,3 @@
-
 /* Vuex store initial state */
 export const INITIAL_STORE_STATE = {
   state: {
@@ -9,9 +8,17 @@ export const INITIAL_STORE_STATE = {
     monsters: [],
     subclasses: [],
     items: [],
-    alignments: ["Lawful Good", "Neutral Good", "Chaotic Good",
-                 "Lawful Neutral", "Neutral", "Chaotic Neutral",
-                 "Lawful Evil", "Neutral Evil", "Chaotic Evil"],
+    alignments: [
+      "Lawful Good",
+      "Neutral Good",
+      "Chaotic Good",
+      "Lawful Neutral",
+      "Neutral",
+      "Chaotic Neutral",
+      "Lawful Evil",
+      "Neutral Evil",
+      "Chaotic Evil",
+    ],
   },
   mutations: {
     setRaces(state, newState) {
@@ -39,7 +46,7 @@ export const INITIAL_STORE_STATE = {
       state.alignments = newState;
     },
   },
-}
+};
 
 /* Retrieves a random value from the given array */
 export const getRandomValue = (arr) => {
@@ -67,15 +74,14 @@ export const getRandomValueAsString = (arr) => {
 */
 export const getRandomValues = (arr) => {
   if (arr && arr[0] && arr[0].name) {
-    let arr2 = [...arr]
+    let arr2 = [...arr];
     let results = [];
     do {
       const index = Math.floor(Math.random() * arr2.length);
-      results.push(arr2[index].name)
-      arr2.splice(index, 1)
-    }
-    while (arr2.length > 0 && Math.random() < 0.5)
-    
+      results.push(arr2[index].name);
+      arr2.splice(index, 1);
+    } while (arr2.length > 0 && Math.random() < 0.5);
+
     return results;
   } else {
     return [];
@@ -84,7 +90,7 @@ export const getRandomValues = (arr) => {
 
 /* Same as getRandomValues but returns a string */
 export const getRandomValuesAsString = (arr) => {
-  const randomValues = getRandomValues(arr)
+  const randomValues = getRandomValues(arr);
   if (randomValues && randomValues.length > 0) {
     return randomValues.join(", ");
   } else {

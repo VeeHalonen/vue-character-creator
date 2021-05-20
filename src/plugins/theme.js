@@ -1,4 +1,4 @@
-import colors from 'vuetify/lib/util/colors'
+import colors from "vuetify/lib/util/colors";
 
 export default {
   primary: {
@@ -9,4 +9,4 @@ export default {
   // All keys will generate theme styles,
   // Here we add a custom `tertiary` color
   tertiary: colors.pink.base,
-}
+};
