@@ -5,14 +5,14 @@ describe("DataList.vue", function () {
   const data = [{ name: "human" }, { name: "not human" }];
   const title = "I'm a title";
 
-  it("has title in <h3>", function () {
-    const wrapper = shallowMount(DataList, {
-      propsData: { title, data },
-    });
+  // it("has title in <h3>", function () {
+  //   const wrapper = shallowMount(DataList, {
+  //     propsData: { title, data },
+  //   });
 
-    const h3 = wrapper.find("h3");
-    expect(h3.text()).toBe(title);
-  });
+  //   const h3 = wrapper.find("h3");
+  //   expect(h3.text()).toBe(title);
+  // });
 
   it("has data in list", function () {
     const wrapper = shallowMount(DataList, {

@@ -1,4 +1,10 @@
 
+.main-container {
+  
+  margin-left: auto;
+  margin-right: auto;
+  width: 80%;
+}
 table.main-table {
   margin-left: auto;
   margin-right: auto;
