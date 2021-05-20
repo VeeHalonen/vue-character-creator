@@ -7,10 +7,10 @@
         <th class="row-title">Alignment:</th>
         <td class="row-content" v-if="options && options.length > 0">
           <v-row align="center">
-            <v-col cols="auto">
-              <v-checkbox on-icon="mdi-lock" off-icon="mdi-lock-open-outline"
-              id="valueLock" v-model="locked" />
-            </v-col>
+        <v-col cols="1">
+          <v-checkbox on-icon="mdi-lock" off-icon="mdi-lock-open-outline"
+            id="valueLock" v-model="locked" />
+        </v-col>
             <v-col>
               <v-radio-group v-model="alignment">
                 <div class="row">

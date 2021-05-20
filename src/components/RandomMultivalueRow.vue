@@ -4,21 +4,19 @@
       <tr>
         <th class="row-title">{{title}}:</th>
         <td class="row-content">
-          <v-container>
-            <v-row align="center">
-              <v-col cols="1">
-                <v-checkbox on-icon="mdi-lock" off-icon="mdi-lock-open-outline"
-                  id="valueLock" v-model="locked" />
-              </v-col>
-              <v-col align-self="center" cols="11">
-                <div>
-                  <multivalue-component v-for="i in selectedValues" :value="i" :key="i"
-                    @delete="deleteItem" />
-                  <multivalue-add :values="notSelected" @add="addItem" />
-                </div>
-              </v-col>
-            </v-row>
-            </v-container>
+          <v-row align="center">
+            <v-col cols="1">
+              <v-checkbox on-icon="mdi-lock" off-icon="mdi-lock-open-outline"
+                id="valueLock" v-model="locked" />
+            </v-col>
+            <v-col>
+              <div>
+                <multivalue-component v-for="i in selectedValues" :value="i" :key="i"
+                  @delete="deleteItem" />
+                <multivalue-add :values="notSelected" @add="addItem" />
+              </div>
+            </v-col>
+          </v-row>
         </td>
       </tr>
 </template>

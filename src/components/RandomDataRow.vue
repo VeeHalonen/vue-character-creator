@@ -7,11 +7,11 @@
     <td class="row-content">
       <v-row align="center">
         <v-col cols="1">
-        <v-checkbox on-icon="mdi-lock" off-icon="mdi-lock-open-outline"
-          id="valueLock" v-model="locked" />
+          <v-checkbox on-icon="mdi-lock" off-icon="mdi-lock-open-outline"
+            id="valueLock" v-model="locked" />
         </v-col>
         <v-col>
-        <span v-if="!dropdown">{{ value }}</span>
+          <span v-if="!dropdown">{{ value }}</span>
           <v-select v-else dense outlined hide-details v-model="value" :items="options.map(i => (i.name))" />
         </v-col>
       </v-row>
