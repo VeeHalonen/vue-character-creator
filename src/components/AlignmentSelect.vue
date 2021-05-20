@@ -15,8 +15,8 @@
             v-model="locked"
           />
         </v-col>
-        <v-col>
-          <v-radio-group v-model="alignment">
+        <v-col cols="10">
+          <v-radio-group v-model="alignment" class="ml-5 pa-0">
             <div class="row">
               <div class="column" v-for="i in options" :key="i">
                 <v-radio name="alignment" :id="i" :value="i" :label="i" />
@@ -62,8 +62,5 @@ export default {
 .column {
   float: left;
   width: 33.33%;
-}
-.row {
-  max-width: 500px;
 }
 </style>
