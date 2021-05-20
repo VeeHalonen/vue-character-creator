@@ -1,6 +1,6 @@
 <template>
   <v-app>
-    <v-main>
+    <v-main class="scale-wrapper">
       <div id="nav">
         <router-link to="/">Generate</router-link> |
         <router-link to="/info">All Options</router-link>
