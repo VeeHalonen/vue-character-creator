@@ -1,5 +1,5 @@
 <template>
-  <v-row align="center" class="py-5">
+  <v-row align="center">
     <!-- Spacer to match lock icon -->
     <v-col cols="1" />
     <!-- Content -->
