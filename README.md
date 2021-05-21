@@ -1,12 +1,16 @@
-# vue-character-creator
+# Vue Character Creator
 
 ## Description
 
-Random character creator with Vue 2.
+Character creator with Vue 2 and Vuetify.
 
-Note that this is a practice project, and thus some inconsistencies in the component hierarchy may be intentional in order to test different approaches. The project was also continued and expanded elsewhere, but this version will remain here as-is for future reference.
+Fill in yourself or randomize. Fields can be locked, light and dark theme, avatar upload. 
 
-API used: http://www.dnd5eapi.co/docs/
+Currently no export or save functionality.
+
+**Demo**: https://veehalonen.github.io/vue-character-creator/
+
+**API used**: http://www.dnd5eapi.co/docs/
 
 ## Project setup
 
@@ -42,7 +46,7 @@ npm run deploy
 
 See [Configuration Reference](https://cli.vuejs.org/config/).
 
-## Screenshots from the original version
+## Screenshots from the original UI
 
 <img width="621" alt="Kuvankaappaus 2021-5-10 kello 15 09 57" src="https://user-images.githubusercontent.com/60449132/117673042-14bb1780-b1b3-11eb-8129-8e0d71cb1817.png">
 
