@@ -1,6 +1,6 @@
 <template>
   <div>
-    <RandomData :races="races" :spells="spells" />
+    <RandomData />
   </div>
 </template>
 
@@ -13,6 +13,15 @@ export default {
   components: {
     RandomData,
   },
-  props: ["races", "spells"],
+  beforeRouteLeave(to, from, next) {
+    const answer = window.confirm(
+      "Really leave the page? All changes will be lost."
+    );
+    if (answer) {
+      next();
+    } else {
+      next(false);
+    }
+  },
 };
 </script>

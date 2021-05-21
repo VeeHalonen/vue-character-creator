@@ -1,3 +1,105 @@
+/* Vuex store initial state */
+export const INITIAL_STORE_STATE = {
+  state: {
+    races: [],
+    spells: [],
+    classes: [],
+    languages: [],
+    monsters: [],
+    subclasses: [],
+    items: [],
+    alignments: [
+      "Lawful Good",
+      "Neutral Good",
+      "Chaotic Good",
+      "Lawful Neutral",
+      "Neutral",
+      "Chaotic Neutral",
+      "Lawful Evil",
+      "Neutral Evil",
+      "Chaotic Evil",
+    ],
+  },
+  mutations: {
+    setRaces(state, newState) {
+      state.races = newState;
+    },
+    setSpells(state, newState) {
+      state.spells = newState;
+    },
+    setClasses(state, newState) {
+      state.classes = newState;
+    },
+    setLanguages(state, newState) {
+      state.languages = newState;
+    },
+    setMonsters(state, newState) {
+      state.monsters = newState;
+    },
+    setSubclasses(state, newState) {
+      state.subclasses = newState;
+    },
+    setItems(state, newState) {
+      state.items = newState;
+    },
+    setAlignments(state, newState) {
+      state.alignments = newState;
+    },
+  },
+};
+
+/* Retrieves a random value from the given array */
+export const getRandomValue = (arr) => {
+  if (arr && arr[0] && arr[0]) {
+    const index = Math.floor(Math.random() * arr.length);
+    return arr[index];
+  } else {
+    return null;
+  }
+};
+
+/* Same as getRandomValue but returns a string */
+export const getRandomValueAsString = (arr) => {
+  if (arr && arr[0] && arr[0].name) {
+    const index = Math.floor(Math.random() * arr.length);
+    return arr[index].name;
+  } else {
+    return "...";
+  }
+};
+
+/* Retrieves random number of values from the given array
+    - Always returns at least one value
+    - Every subsequent value has a 50% chance to be added
+*/
+export const getRandomValues = (arr) => {
+  if (arr && arr[0] && arr[0].name) {
+    let arr2 = [...arr];
+    let results = [];
+    do {
+      const index = Math.floor(Math.random() * arr2.length);
+      results.push(arr2[index].name);
+      arr2.splice(index, 1);
+    } while (arr2.length > 0 && Math.random() < 0.5);
+
+    return results;
+  } else {
+    return [];
+  }
+};
+
+/* Same as getRandomValues but returns a string */
+export const getRandomValuesAsString = (arr) => {
+  const randomValues = getRandomValues(arr);
+  if (randomValues && randomValues.length > 0) {
+    return randomValues.join(", ");
+  } else {
+    return "...";
+  }
+};
+
+/* Random Name Generator Algorithm */
+
 // Generates a random name starting with "initial"
 export function generateName(initial = "") {
   const UPPER_CASE = "ABCDEFGHIJKLMNOPQRSTUVWXYZ";

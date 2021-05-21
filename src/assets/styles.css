@@ -1,0 +1,64 @@
+
+.scale-wrapper {
+  /* Scale UI */
+  transform: scale(0.8);
+  transform-origin:top;
+}
+.main-container {
+  margin-left: auto;
+  margin-right: auto;
+  width: 80%;
+}
+table.main-table {
+  margin-left: auto;
+  margin-right: auto;
+  text-align: left;
+  padding: 0px 20px 20px 20px;
+}
+th.row-title { 
+  width: 30%;
+  text-align: right;
+  padding: 0px;
+  padding-right: 20px;
+}
+td.row-content {
+  width: 40%;
+  text-align: left;
+  padding: 0px;
+  padding-top: 0px;
+  margin: 10px;
+  max-width: 400px;
+}
+.v-list-item {
+  text-align: left;
+}
+.light-switch-container {
+  display: flex;
+  justify-content: flex-end;
+}
+
+#app {
+  font-family: Avenir, Helvetica, Arial, sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  text-align: center;
+}
+
+#nav {
+  padding: 30px;
+}
+
+#nav a {
+  font-weight: bold;
+  text-decoration: none;
+}
+
+#nav a:hover {
+  color: #bb2929;
+}
+
+#nav a.router-link-exact-active {
+  color: #bb2929;
+  color: "secondary";
+  text-decoration: underline;
+}

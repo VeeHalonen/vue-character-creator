@@ -1,23 +1,30 @@
 <template>
-  <div id="app">
-    <div id="nav">
-      <router-link to="/">Generate</router-link> |
-      <router-link to="/info">All Options</router-link>
-    </div>
-    <router-view :races="races" :spells="spells" @refetch="refetchData" />
-  </div>
+  <v-app>
+    <v-main class="scale-wrapper">
+      <div class="light-switch-container">
+        <v-switch
+          dense
+          v-model="$vuetify.theme.dark"
+          inset
+          label="Theme"
+        ></v-switch>
+      </div>
+      <div id="nav">
+        <router-link to="/">Generate</router-link> |
+        <router-link to="/info">All Options</router-link>
+      </div>
+      <router-view @refetch="refetchData" />
+    </v-main>
+    <v-footer class="justify-center mt-10">
+      <div class="grey--text caption">VEH 2021</div>
+    </v-footer>
+  </v-app>
 </template>
 
 <script>
 const baseURL = "https://www.dnd5eapi.co/api/";
 
 export default {
-  data() {
-    return {
-      races: [],
-      spells: [],
-    };
-  },
   created() {
     this.fetchAll();
   },
@@ -29,10 +36,12 @@ export default {
       );
     },
     async fetchAll() {
-      // Props
-      this.fetchDND("races").then((data) => (this.races = data.results));
-      this.fetchDND("spells").then((data) => (this.spells = data.results));
-      // Store
+      this.fetchDND("races").then((data) =>
+        this.$store.commit("setRaces", data.results)
+      );
+      this.fetchDND("spells").then((data) =>
+        this.$store.commit("setSpells", data.results)
+      );
       this.fetchDND("classes").then((data) =>
         this.$store.commit("setClasses", data.results)
       );
@@ -54,21 +63,19 @@ export default {
             this.$store.commit("setItems", items.concat(data.results));
           })
         );
-      this.fetchDND("alignments").then((data) =>
-        this.$store.commit("setAlignments", data.results)
-      );
+      // this.fetchDND("alignments").then((data) =>
+      //   this.$store.commit("setAlignments", data.results)
+      // );
     },
     clearData() {
-      // Props
-      this.races = [];
-      this.spells = [];
-      // Store
+      this.$store.commit("setRaces", []);
+      this.$store.commit("setSpells", []);
       this.$store.commit("setClasses", []);
       this.$store.commit("setLanguages", []);
       this.$store.commit("setMonsters", []);
       this.$store.commit("setSubclasses", []);
       this.$store.commit("setItems", []);
-      this.$store.commit("setAlignments", []);
+      // this.$store.commit("setAlignments", []);
     },
     refetchData() {
       window.scrollTo(0, 0);
@@ -80,30 +87,5 @@ export default {
 </script>
 
 <style>
-#app {
-  font-family: Avenir, Helvetica, Arial, sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-  text-align: center;
-  color: #2c3e50;
-}
-
-#nav {
-  padding: 30px;
-}
-
-#nav a {
-  font-weight: bold;
-  color: #41566b;
-  text-decoration: none;
-}
-
-#nav a:hover {
-  color: #bb2929;
-}
-
-#nav a.router-link-exact-active {
-  color: #830909;
-  text-decoration: underline;
-}
+@import "./assets/styles.css";
 </style>

@@ -1,116 +1,120 @@
 <template>
   <div>
-    <table columns="50%,50%">
+    <table class="main-table">
       <tr>
-        <th>Name:</th>
-        <td>{{ name() }}</td>
+        <th class="row-title">Avatar:</th>
+        <td class="row-content">
+          <image-upload />
+        </td>
       </tr>
       <tr>
-        <th>Race:</th>
-        <td>{{ race() }}</td>
+        <th class="row-title">Name:</th>
+        <td class="row-content">
+          <v-row align="center">
+            <v-col cols="1">
+              <v-checkbox
+                on-icon="mdi-lock"
+                off-icon="mdi-lock-open-outline"
+                id="nameLock"
+                v-model="nameLocked"
+              />
+            </v-col>
+            <v-col>
+              <v-text-field
+                dense
+                outlined
+                hide-details
+                v-model="name"
+                :disabled="nameLocked"
+              />
+            </v-col>
+          </v-row>
+        </td>
       </tr>
+      <random-data-row
+        title="Race"
+        :options="this.$store.state.races"
+        :shuffle="shuffle"
+        dropdown
+      />
+      <random-data-row
+        title="Class"
+        :options="this.$store.state.classes"
+        :shuffle="shuffle"
+        dropdown
+      />
+      <alignment-select
+        :options="this.$store.state.alignments"
+        :shuffle="shuffle"
+      />
+      <random-data-row
+        title="Favourite Spell"
+        :options="this.$store.state.spells"
+        :shuffle="shuffle"
+        searchable
+      />
+      <random-multivalue-row
+        title="Languages"
+        :options="this.$store.state.languages"
+        :shuffle="shuffle"
+      />
+      <random-data-row
+        title="Most Prized Possession"
+        :options="this.$store.state.items"
+        :shuffle="shuffle"
+        searchable
+      />
+      <random-data-row
+        title="Most Fearsome Enemy Defeated"
+        :options="this.$store.state.monsters"
+        :shuffle="shuffle"
+        searchable
+      />
       <tr>
-        <th>Class:</th>
-        <!-- The subclasses were a bit too silly -->
-        <!-- <td>{{ subclass() + " " + getClass() }}</td> -->
-        <td>{{ getClass() }}</td>
-      </tr>
-      <tr>
-        <th>Alignment:</th>
-        <td>{{ alignment() }}</td>
-      </tr>
-      <tr>
-        <th>Favourite Spell:</th>
-        <td>{{ spell() }}</td>
-      </tr>
-      <tr>
-        <th>First Language:</th>
-        <td>{{ language() }}</td>
-      </tr>
-      <tr>
-        <th>Most Prized Possession:</th>
-        <td>{{ item() }}</td>
-      </tr>
-      <tr>
-        <th>Most Fearsome Enemy Defeated:</th>
-        <td>{{ monster() }}</td>
+        <th class="row-title">Description:</th>
+        <td class="row-content">
+          <v-textarea outlined hide-details v-model="description" rows="3" />
+        </td>
       </tr>
     </table>
-
     <div>
-      <button @click="randomize">Randomize</button>
+      <v-btn large @click="randomize" color="secondary">Randomize</v-btn>
     </div>
   </div>
 </template>
 
 <script>
 import { generateName } from "../helpers";
-
-// Gets a random value from given array
-const getRandomValue = (arr) => {
-  if (arr && arr[0] && arr[0].name) {
-    const index = Math.floor(Math.random() * arr.length);
-    return arr[index].name;
-  } else {
-    return "...";
-  }
-};
+import RandomDataRow from "./RandomDataRow.vue";
+import RandomMultivalueRow from "./RandomMultivalueRow.vue";
+import AlignmentSelect from "./AlignmentSelect.vue";
+import ImageUpload from "./ImageUpload.vue";
 
 export default {
   name: "RandomData",
-  props: ["races", "spells"],
+  components: {
+    RandomDataRow,
+    RandomMultivalueRow,
+    AlignmentSelect,
+    ImageUpload,
+  },
+  data() {
+    return {
+      shuffle: true,
+      nameLocked: false,
+      name: "",
+      description: "",
+    };
+  },
+  created: function () {
+    if (!this.nameLocked) this.name = generateName();
+  },
   methods: {
     randomize() {
-      this.$forceUpdate();
-    },
-    // Returns a random race
-    race() {
-      return getRandomValue(this.races);
-    },
-    // Returns a random spell
-    spell() {
-      return getRandomValue(this.spells);
-    },
-    // Etc.
-    getClass() {
-      return getRandomValue(this.$store.state.classes);
-    },
-    language() {
-      return getRandomValue(this.$store.state.languages);
-    },
-    monster() {
-      return getRandomValue(this.$store.state.monsters);
-    },
-    subclass() {
-      return getRandomValue(this.$store.state.subclasses);
-    },
-    item() {
-      return getRandomValue(this.$store.state.items);
-    },
-    alignment() {
-      return getRandomValue(this.$store.state.alignments);
-    },
-    name() {
-      return generateName();
+      this.shuffle = !this.shuffle;
+      if (!this.nameLocked) this.name = generateName();
     },
   },
 };
 </script>
 
-<style scoped>
-table {
-  margin-left: auto;
-  margin-right: auto;
-  text-align: left;
-  padding: 20px 20px 20px 20px;
-}
-tr {
-  width: 50%;
-  text-align: right;
-}
-td {
-  width: 50%;
-  text-align: left;
-  padding: 5px;
-}
-</style>

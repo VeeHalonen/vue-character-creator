@@ -1,8 +1,8 @@
 <template>
   <div>
-    <h3>{{ title }}</h3>
-    <div v-if="data && data.length > 1">
-      <ol>
+    <h3 class="my-5">{{ title }}</h3>
+    <div v-if="data && data.length >= 1">
+      <ol class="mb-5">
         <li v-for="(item, i) in parsedData" :key="i">
           {{ item }}
         </li>
@@ -16,14 +16,15 @@
 
 <script>
 export default {
+  name: "DataList",
   props: ["title", "data"],
   computed: {
-    parsedData: function() {
+    parsedData: function () {
       const parsed = [];
       this.data.map((i) => {
         if (i.name) {
           parsed.push(i.name);
-        }
+        } else parsed.push(i);
       });
       return parsed;
     },
