@@ -6,7 +6,7 @@ Character creator with Vue 2 and Vuetify.
 
 Fill in yourself or randomize. Fields can be locked, light and dark theme, avatar upload. 
 
-Currently no export or save functionality.
+Currently no export or save functionality. Not optimized for mobile.
 
 **Demo**: https://veehalonen.github.io/vue-character-creator/
 
