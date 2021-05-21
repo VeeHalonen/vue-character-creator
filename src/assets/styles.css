@@ -32,13 +32,16 @@ td.row-content {
 .v-list-item {
   text-align: left;
 }
+.light-switch-container {
+  display: flex;
+  justify-content: flex-end;
+}
 
 #app {
   font-family: Avenir, Helvetica, Arial, sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   text-align: center;
-  color: #2c3e50;
 }
 
 #nav {
@@ -47,7 +50,6 @@ td.row-content {
 
 #nav a {
   font-weight: bold;
-  color: #41566b;
   text-decoration: none;
 }
 
@@ -56,6 +58,7 @@ td.row-content {
 }
 
 #nav a.router-link-exact-active {
-  color: #830909;
+  color: #bb2929;
+  color: "secondary";
   text-decoration: underline;
 }

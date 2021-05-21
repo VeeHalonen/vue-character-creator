@@ -1,6 +1,14 @@
 <template>
   <v-app>
     <v-main class="scale-wrapper">
+      <div class="light-switch-container">
+        <v-switch
+          dense
+          v-model="$vuetify.theme.dark"
+          inset
+          label="Theme"
+        ></v-switch>
+      </div>
       <div id="nav">
         <router-link to="/">Generate</router-link> |
         <router-link to="/info">All Options</router-link>
