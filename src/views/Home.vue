@@ -13,5 +13,15 @@ export default {
   components: {
     RandomData,
   },
+  beforeRouteLeave(to, from, next) {
+    const answer = window.confirm(
+      "Really leave the page? All changes will be lost."
+    );
+    if (answer) {
+      next();
+    } else {
+      next(false);
+    }
+  },
 };
 </script>
