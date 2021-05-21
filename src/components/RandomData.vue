@@ -2,6 +2,12 @@
   <div>
     <table class="main-table">
       <tr>
+        <th class="row-title">Avatar:</th>
+        <td class="row-content">
+          <image-upload />
+        </td>
+      </tr>
+      <tr>
         <th class="row-title">Name:</th>
         <td class="row-content">
           <v-row align="center">
@@ -71,9 +77,8 @@
         </td>
       </tr>
     </table>
-
     <div>
-      <v-btn @click="randomize" color="secondary">Randomize</v-btn>
+      <v-btn large @click="randomize" color="secondary">Randomize</v-btn>
     </div>
   </div>
 </template>
@@ -83,10 +88,16 @@ import { generateName } from "../helpers";
 import RandomDataRow from "./RandomDataRow.vue";
 import RandomMultivalueRow from "./RandomMultivalueRow.vue";
 import AlignmentSelect from "./AlignmentSelect.vue";
+import ImageUpload from "./ImageUpload.vue";
 
 export default {
   name: "RandomData",
-  components: { RandomDataRow, RandomMultivalueRow, AlignmentSelect },
+  components: {
+    RandomDataRow,
+    RandomMultivalueRow,
+    AlignmentSelect,
+    ImageUpload,
+  },
   data() {
     return {
       shuffle: true,
